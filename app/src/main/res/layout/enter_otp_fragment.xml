@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.chaos.view.PinView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/enterOtpPv"
+            app:itemCount="6"
+            style="@style/PinWidget.PinView"
+            app:itemRadius="10dp" />
+
+        <Button
+            android:id="@+id/enterOtpVerifyBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:layout_marginTop="20dp"
+            android:text="Verify" />
+
+    </LinearLayout>
+</layout>

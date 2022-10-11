@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/enterPhoneFragmentPhoneEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginBottom="10dp"
+            android:inputType="phone"
+            android:hint="enter your phone number" />
+
+        <Button
+            android:id="@+id/enterPhoneSendCodeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Send code" />
+
+        <ProgressBar
+            android:id="@+id/enterPhoneProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

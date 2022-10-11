@@ -7,5 +7,44 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.testallthings.ui.auth.login.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_enterPhone2"
+            app:destination="@id/enterPhone"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterPhone"
+        android:name="com.example.testallthings.ui.auth.OTP.EnterPhone"
+        android:label="EnterPhone" >
+        <action
+            android:id="@+id/action_enterPhone_to_enterOtp"
+            app:destination="@id/enterOtp"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterOtp"
+        android:name="com.example.testallthings.ui.auth.OTP.EnterOtp"
+        android:label="EnterOtp" >
+        <action
+            android:id="@+id/action_enterOtp_to_newPassword"
+            app:destination="@id/newPassword"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newPassword"
+        android:name="com.example.testallthings.ui.auth.OTP.NewPassword"
+        android:label="NewPassword" >
+        <action
+            android:id="@+id/action_newPassword_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_out_right" />
+    </fragment>
 </navigation>
