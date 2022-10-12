@@ -6,6 +6,7 @@ import com.example.testallthings.network.Api
 import com.example.testallthings.utils.prefUtils.PrefKeys.USER_TOKEN
 import com.example.testallthings.utils.prefUtils.PrefUtils
 import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideGson(): Gson {
-        return Gson()
+        return Gson().newBuilder().setLenient().create()
     }
 
     @Singleton
@@ -34,17 +35,18 @@ object AppModule {
                 (it.request().newBuilder().addHeader(
                     "Authorization",
                     "Bearer ${PrefUtils.getFromPref(context, USER_TOKEN, "")}"
-                ).build())
+                ).addHeader("Content-Type","application/json").build())
             )
         }.build()
     }
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(client:OkHttpClient,gson:Gson): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 
